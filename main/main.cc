@@ -24,8 +24,8 @@ int main(int argc, char* argv[]) {
   CandidateSet candidate_set(candidate_set_file_name);
 
   Backtrack backtrack;
-
-  backtrack.PrintAllMatches(data, query, candidate_set);
+  backtrack.BacktrackMain(data, query, candidate_set);
+  //backtrack.PrintAllMatches(data, query, candidate_set);
 
   return EXIT_SUCCESS;
 }

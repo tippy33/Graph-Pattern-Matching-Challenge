@@ -77,6 +77,9 @@ Graph::Graph(const std::string &filename, bool is_query) {
 
   num_edges_ = 0;
 
+  num_children.resize(num_vertices_);
+  children_id.resize(num_vertices_);
+
   // preprocessing
   while (fin >> type) {
     if (type == 'v') {
@@ -100,6 +103,9 @@ Graph::Graph(const std::string &filename, bool is_query) {
       adj_list[v2].push_back(v1);
 
       num_edges_ += 1;
+
+      num_children[v1]++;
+      children_id[v1].push_back(v2);
     }
   }
 

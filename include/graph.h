@@ -23,6 +23,8 @@ class Graph {
   inline size_t GetNeighborLabelFrequency(Vertex v, Label l) const;
 
   inline size_t GetDegree(Vertex v) const;
+  inline int GetNumChildren(Vertex id) const;   // custom 
+  inline std::vector<Vertex> GetChildrenID(Vertex id) const;
 
   inline size_t GetNeighborStartOffset(Vertex v) const;
   inline size_t GetNeighborEndOffset(Vertex v) const;
@@ -41,6 +43,8 @@ class Graph {
   size_t num_vertices_;
   size_t num_edges_;
   size_t num_labels_;
+  std::vector<int> num_children;  //custom
+  std::vector<std::vector<Vertex>> children_id;  //custom
 
   std::vector<size_t> label_frequency_;
 
@@ -99,13 +103,31 @@ inline size_t Graph::GetNeighborLabelFrequency(Vertex v, Label l) const {
   return GetNeighborEndOffset(v, l) - GetNeighborStartOffset(v, l);
 }
 /**
- * @brief Returns the degree of the vertex v.
+ * @brief Returns the degree of the vertex v. 한 vertex에 연결된 edge의 개수
  *
  * @param v vertex id.
  * @return size_t
  */
 inline size_t Graph::GetDegree(Vertex v) const {
   return start_offset_[v + 1] - start_offset_[v];
+}
+/**
+ * @brief Returns the number of children of the vertex
+ *
+ * @param v vertex id.
+ * @return int
+ */
+inline int Graph::GetNumChildren(Vertex id) const{
+  return num_children[id];
+}
+/**
+ * @brief Returns the ids of children of the vertex
+ *
+ * @param v vertex id.
+ * @return vector<vertex>
+ */
+inline std::vector<Vertex> Graph::GetChildrenID(Vertex id) const{
+  return children_id[id];
 }
 /**
  * @brief Returns the start offset of v's neighbor in adjacent array.

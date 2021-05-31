@@ -15,7 +15,15 @@ class Backtrack {
   Backtrack();
   ~Backtrack();
 
+  void BacktrackMain(const Graph &data, const Graph &query,
+                                const CandidateSet &cs);
+
   void PrintAllMatches(const Graph &data, const Graph &query,
+                       const CandidateSet &cs);
+  void MatchAllPairs(const Graph &data, const Graph &query,
+                       const CandidateSet &cs, Vertex myID);
+  int GetPathIndex(size_t size);
+  bool CheckVertexCondition(int vertexID, const Graph &data, const Graph &query,
                        const CandidateSet &cs);
 };
 
