@@ -49,7 +49,7 @@ void Backtrack::MatchAllPairs(const Graph &data, const Graph &query,
   }
 
 }
-
+/*
 int Backtrack::GetPathIndex(size_t size){
   int i =0;
   std::vector<std::vector<std::pair<Vertex, Vertex>>>::iterator iter = g_paths.begin();
@@ -58,7 +58,7 @@ int Backtrack::GetPathIndex(size_t size){
     i++;
   }
   return i;
-}
+}*/
 
 void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
                                 const CandidateSet &cs) {
