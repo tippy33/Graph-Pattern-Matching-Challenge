@@ -23,7 +23,8 @@ class Graph {
   inline size_t GetNeighborLabelFrequency(Vertex v, Label l) const;
 
   inline size_t GetDegree(Vertex v) const;
-  inline int GetNumChildren(Vertex id) const;   // custom 
+  inline size_t GetNumChildren(Vertex id) const;   // custom 
+  inline size_t GetNumParent(Vertex id) const;   // custom 
   inline std::vector<Vertex> GetChildrenID(Vertex id) const;
 
   inline size_t GetNeighborStartOffset(Vertex v) const;
@@ -43,8 +44,10 @@ class Graph {
   size_t num_vertices_;
   size_t num_edges_;
   size_t num_labels_;
-  std::vector<int> num_children;  //custom
+  std::vector<size_t> num_children;  //custom
+  std::vector<size_t> num_parent;
   std::vector<std::vector<Vertex>> children_id;  //custom
+
 
   std::vector<size_t> label_frequency_;
 
@@ -117,8 +120,17 @@ inline size_t Graph::GetDegree(Vertex v) const {
  * @param v vertex id.
  * @return int
  */
-inline int Graph::GetNumChildren(Vertex id) const{
+inline size_t Graph::GetNumChildren(Vertex id) const{
   return num_children[id];
+}
+/**
+ * @brief Returns the number of parents of the vertex
+ *
+ * @param v vertex id.
+ * @return size_t
+ */
+inline size_t Graph::GetNumParent(Vertex id) const{
+  return num_parent[id];
 }
 /**
  * @brief Returns the ids of children of the vertex

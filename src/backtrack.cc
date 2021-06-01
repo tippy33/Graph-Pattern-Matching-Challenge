@@ -8,31 +8,79 @@
 #include "limits"
 
 std::vector<std::vector<std::pair<Vertex, Vertex>>> g_paths;  // all_paths
-//std::vector<std::pair<Vertex, Vertex>> 
-//std::list<int> g_answerList;
+std::vector<bool> g_allParentsMatched;
+std::vector<size_t> g_num_parent;
+std::vector<size_t> g_num_matched_parent;  // initialized to 0 already
+std::vector<bool> g_is_matched;
 
 Backtrack::Backtrack() {}
 Backtrack::~Backtrack() {}
+
+void Backtrack::Preprocess(const Graph &query){
+  size_t num_vertices = query.GetNumVertices();
+  g_allParentsMatched.assign(num_vertices, false);
+  g_num_parent.resize(num_vertices);
+  for(size_t i=0; i<num_vertices; i++){
+    g_num_parent[i] = query.GetNumParent(i);
+  }
+  g_is_matched.assign(num_vertices, false);
+}
+
+void Backtrack::BacktrackMain(const Graph &data, const Graph &query,
+                                const CandidateSet &cs){
+  Preprocess(query);
+  std::vector<std::pair<Vertex, Vertex>> match;
+  SubgraphSearch(data, query, cs, match);
+}
 
 void Backtrack::SubgraphSearch(const Graph &data, const Graph &query,
                                 const CandidateSet &cs, std::vector<std::pair<Vertex, Vertex>> match){
   if(match.size()==query.GetNumVertices()){
     PrintAllMatches(match);
   } else {
-    Vertex nextQueryVertex = NextQueryVertex();
+    Vertex nextQueryVertex = NextQueryVertex(query, cs);
     std::vector<Vertex> candidates = GetCandidates(cs, nextQueryVertex);
     for(Vertex v : candidates){
-      if(IsJoinable(v, match, data, query, cs)==true){
+      if(IsExtendable(v, match, data, query, cs)==true){
         std::pair<Vertex, Vertex> pair = {nextQueryVertex, v};  // update match
         match.push_back(pair);
+        UpdateState(pair);  // update global variables 
         SubgraphSearch(data, query, cs, match);  // recursive call
         match.pop_back();  // delete the last element 
+        
       }
     }
   }
 }
 
-bool Backtrack::IsJoinable(Vertex candidate, std::vector<std::pair<Vertex, Vertex>> match, 
+void Backtrack::UpdateState(std::pair<Vertex, Vertex> pair){ // pair(u, v)
+  g_num_matched_parent[pair.first]++;
+  if(g_num_matched_parent[pair.first]==g_num_parent[pair.first]){
+    g_allParentsMatched[pair.first] = true;
+  }
+  g_is_matched[pair.first] = true;  // query vertex u is matched
+}
+
+Vertex Backtrack::NextQueryVertex(const Graph &query, const CandidateSet &cs){
+  // 1) 아직 matching되지 않았고 2) parent들의 매칭이 완료됐고 3) 그 중 candidate size가 제일 작은 vertex
+  std::vector<Vertex> nextQueryCandidates;
+  for(size_t i=0; i<query.GetNumVertices(); i++){  //TODO 좀 더 효율적인 것으로 바꿀 것
+    if(g_is_matched[i]==false && g_allParentsMatched[i]==true){
+      nextQueryCandidates.push_back(i);
+    }
+  }
+  size_t min = std::numeric_limits<size_t>::max();
+  Vertex next_u;
+  for(Vertex u : nextQueryCandidates){
+    if(min > cs.GetCandidateSize(u)){
+      min = cs.GetCandidateSize(u);
+      next_u = u;
+    }
+  }
+  return next_u;
+}
+
+bool Backtrack::IsExtendable(Vertex candidate, std::vector<std::pair<Vertex, Vertex>> match, 
                             const Graph &data, const Graph &query, const CandidateSet &cs){
   // TODO 들어온 candidate가 matching 될 수 있는지 아닌지 판별해서 알려줌
 }
@@ -46,26 +94,12 @@ std::vector<Vertex> Backtrack::GetCandidates(const CandidateSet &cs, Vertex quer
   return candidates;
 }
 
-Vertex Backtrack::NextQueryVertex(){
-  // TODO
-}
-
 void Backtrack::PrintAllMatches(std::vector<std::pair<Vertex, Vertex>> match) {
   // TODO match 프린트하는 것 구현해야 함
 }
 
-///////////////////////////
-void Backtrack::BacktrackMain(const Graph &data, const Graph &query,
-                                const CandidateSet &cs){
-  size_t root_candidate_size = cs.GetCandidateSize(0);  // vertex id 0
-  std::vector<std::pair<Vertex, Vertex>> v;
-  for(int i=0; i<root_candidate_size; i++){
-    std::pair<Vertex, Vertex> p = {0, cs.GetCandidate(0, i)};
-    v.push_back(p);
-  }
-  g_paths.push_back(v);
-  // TODO 
-}
+
+/////////////////////////// 이하 무시 /////////////////////////////
 
 void Backtrack::MatchAllPairs(const Graph &data, const Graph &query,
                                 const CandidateSet &cs, Vertex myID){
