@@ -9,11 +9,52 @@
 
 std::vector<std::vector<std::pair<Vertex, Vertex>>> g_paths;  // all_paths
 //std::vector<std::pair<Vertex, Vertex>> 
-std::list<int> g_answerList;
+//std::list<int> g_answerList;
 
 Backtrack::Backtrack() {}
 Backtrack::~Backtrack() {}
 
+void Backtrack::SubgraphSearch(const Graph &data, const Graph &query,
+                                const CandidateSet &cs, std::vector<std::pair<Vertex, Vertex>> match){
+  if(match.size()==query.GetNumVertices()){
+    PrintAllMatches(match);
+  } else {
+    Vertex nextQueryVertex = NextQueryVertex();
+    std::vector<Vertex> candidates = GetCandidates(cs, nextQueryVertex);
+    for(Vertex v : candidates){
+      if(IsJoinable(v, match, data, query, cs)==true){
+        std::pair<Vertex, Vertex> pair = {nextQueryVertex, v};  // update match
+        match.push_back(pair);
+        SubgraphSearch(data, query, cs, match);  // recursive call
+        match.pop_back();  // delete the last element 
+      }
+    }
+  }
+}
+
+bool Backtrack::IsJoinable(Vertex candidate, std::vector<std::pair<Vertex, Vertex>> match, 
+                            const Graph &data, const Graph &query, const CandidateSet &cs){
+  // TODO 들어온 candidate가 matching 될 수 있는지 아닌지 판별해서 알려줌
+}
+
+std::vector<Vertex> Backtrack::GetCandidates(const CandidateSet &cs, Vertex queryVertexID){
+  size_t candidateSize = cs.GetCandidateSize(queryVertexID);
+  std::vector<Vertex> candidates;
+  for(int i=0; i<candidateSize; i++){
+    candidates.push_back(cs.GetCandidate(queryVertexID, i));
+  }
+  return candidates;
+}
+
+Vertex Backtrack::NextQueryVertex(){
+  // TODO
+}
+
+void Backtrack::PrintAllMatches(std::vector<std::pair<Vertex, Vertex>> match) {
+  // TODO match 프린트하는 것 구현해야 함
+}
+
+///////////////////////////
 void Backtrack::BacktrackMain(const Graph &data, const Graph &query,
                                 const CandidateSet &cs){
   size_t root_candidate_size = cs.GetCandidateSize(0);  // vertex id 0
@@ -49,7 +90,7 @@ void Backtrack::MatchAllPairs(const Graph &data, const Graph &query,
   }
 
 }
-/*
+
 int Backtrack::GetPathIndex(size_t size){
   int i =0;
   std::vector<std::vector<std::pair<Vertex, Vertex>>>::iterator iter = g_paths.begin();
@@ -58,11 +99,6 @@ int Backtrack::GetPathIndex(size_t size){
     i++;
   }
   return i;
-}*/
-
-void Backtrack::PrintAllMatches(const Graph &data, const Graph &query,
-                                const CandidateSet &cs) {
-  std::cout << "t " << query.GetNumVertices() << "\n";
-  // implement your code here.
-  
 }
+
+
