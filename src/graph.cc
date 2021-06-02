@@ -80,6 +80,7 @@ Graph::Graph(const std::string &filename, bool is_query) {
   num_children.resize(num_vertices_);
   num_parent.resize(num_vertices_);
   children_id.resize(num_vertices_);
+  parent_id.resize(num_vertices_);
 
   // preprocessing
   while (fin >> type) {
@@ -108,6 +109,7 @@ Graph::Graph(const std::string &filename, bool is_query) {
       num_parent[v2]++;  // number of parents 
       num_children[v1]++;  // number of children 
       children_id[v1].push_back(v2);
+      parent_id[v2].push_back(v1);
     }
   }
 

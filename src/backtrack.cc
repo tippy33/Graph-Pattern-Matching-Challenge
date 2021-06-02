@@ -43,8 +43,8 @@ void Backtrack::SubgraphSearch(const Graph &data, const Graph &query,
     Vertex nextQueryVertex = NextQueryVertex(query, cs);
     std::vector<Vertex> candidates = GetCandidates(cs, nextQueryVertex);  // vector of v
     for(Vertex v : candidates){
-      if(IsExtendable(v, match, data, query, cs)==true){
-        std::pair<Vertex, Vertex> pair = {nextQueryVertex, v};  // new pair 
+      std::pair<Vertex, Vertex> pair = {nextQueryVertex, v};  // new pair 
+      if(IsExtendable(pair, match, data, query, cs)==true){
         match.push_back(pair);    // update match
         UpdateState(query, nextQueryVertex);  // update global variables 
         SubgraphSearch(data, query, cs, match);  // recursive call
@@ -104,8 +104,24 @@ Vertex Backtrack::NextQueryVertex(const Graph &query, const CandidateSet &cs){
   return next_u;
 }
 
-bool Backtrack::IsExtendable(Vertex candidate, std::vector<std::pair<Vertex, Vertex>> match, 
+bool Backtrack::IsExtendable(std::pair<Vertex, Vertex> candidate, std::vector<std::pair<Vertex, Vertex>> match, 
                             const Graph &data, const Graph &query, const CandidateSet &cs){
+  for(size_t i=0; i<match.size(); i++){
+    if(candidate.second == match[i].second){
+      return false;
+    }
+  }
+  std::vector<Vertex> parent = query.GetParentID(candidate.first);
+  for(size_t i=0; i<parent.size(); i++){
+    for(size_t j=0; j<match.size(); j++){
+      if(match[j].first == parent[i]){
+        if(!data.IsNeighbor(match[j].second, candidate.second)){
+          return false;
+        }
+      }
+    }
+  }
+  return true;
   // TODO 들어온 candidate가 matching 될 수 있는지 아닌지 판별해서 알려줌
 }
 
