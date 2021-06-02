@@ -27,8 +27,9 @@ class Backtrack {
   std::vector<Vertex> Backtrack::GetCandidates(const CandidateSet &cs, Vertex queryVertexID);
   bool Backtrack::IsExtendable(Vertex candidate, std::vector<std::pair<Vertex, Vertex>> match, 
                             const Graph &data, const Graph &query, const CandidateSet &cs);
-
-  void PrintAllMatches(std::vector<std::pair<Vertex, Vertex>> match);
+  bool Backtrack::cmp(std::pair<Vertex, Vertex> pair1, std::pair<Vertex, Vertex> pair2);
+  void PrintAllMatches(const Graph &query, std::vector<std::pair<Vertex, Vertex>> match);
+  
   void MatchAllPairs(const Graph &data, const Graph &query,
                        const CandidateSet &cs, Vertex myID);
   int GetPathIndex(size_t size);
