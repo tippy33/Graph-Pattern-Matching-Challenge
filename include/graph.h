@@ -26,6 +26,7 @@ class Graph {
   inline size_t GetNumChildren(Vertex id) const;   // custom 
   inline size_t GetNumParent(Vertex id) const;   // custom 
   inline std::vector<Vertex> GetChildrenID(Vertex id) const;
+  inline std::vector<Vertex> GetParentID(Vertex id) const; // custom
 
   inline size_t GetNeighborStartOffset(Vertex v) const;
   inline size_t GetNeighborEndOffset(Vertex v) const;
@@ -47,6 +48,7 @@ class Graph {
   std::vector<size_t> num_children;  //custom
   std::vector<size_t> num_parent;
   std::vector<std::vector<Vertex>> children_id;  //custom
+  std::vector<std::vector<Vertex>> parent_id; //custom
 
 
   std::vector<size_t> label_frequency_;
@@ -140,6 +142,10 @@ inline size_t Graph::GetNumParent(Vertex id) const{
  */
 inline std::vector<Vertex> Graph::GetChildrenID(Vertex id) const{
   return children_id[id];
+}
+
+inline std::vector<Vertex> Graph::GetParentID(Vertex id) const{
+  return parent_id[id];
 }
 /**
  * @brief Returns the start offset of v's neighbor in adjacent array.
