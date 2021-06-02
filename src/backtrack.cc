@@ -6,12 +6,14 @@
 #include "backtrack.h"
 #include "list"
 #include "limits"
+#include "algorithm"
 
 std::vector<std::vector<std::pair<Vertex, Vertex>>> g_paths;  // all_paths
 std::vector<bool> g_allParentsMatched;
 std::vector<size_t> g_num_parent;
 std::vector<size_t> g_num_matched_parent;  // initialized to 0 already
 std::vector<bool> g_is_matched;
+bool print_first_call = true; 
 
 Backtrack::Backtrack() {}
 Backtrack::~Backtrack() {}
@@ -37,7 +39,7 @@ void Backtrack::BacktrackMain(const Graph &data, const Graph &query,
 void Backtrack::SubgraphSearch(const Graph &data, const Graph &query,
                                 const CandidateSet &cs, std::vector<std::pair<Vertex, Vertex>> match){
   if(match.size()==query.GetNumVertices()){
-    PrintAllMatches(match);
+    PrintAllMatches(query, match);
     return;
   } else {
     Vertex nextQueryVertex = NextQueryVertex(query, cs);
@@ -55,7 +57,7 @@ void Backtrack::SubgraphSearch(const Graph &data, const Graph &query,
   }
 }
 
-void Backtrack::RestoreState(const Graph &query, Vertex u){  // TODO  
+void Backtrack::RestoreState(const Graph &query, Vertex u){ 
   std::vector<Vertex> childrenID = query.GetChildrenID(u);
   for(Vertex u_child : childrenID){
     g_num_matched_parent[u_child]--;
@@ -107,6 +109,7 @@ Vertex Backtrack::NextQueryVertex(const Graph &query, const CandidateSet &cs){
 bool Backtrack::IsExtendable(Vertex candidate, std::vector<std::pair<Vertex, Vertex>> match, 
                             const Graph &data, const Graph &query, const CandidateSet &cs){
   // TODO 들어온 candidate가 matching 될 수 있는지 아닌지 판별해서 알려줌
+  return true; 
 }
 
 std::vector<Vertex> Backtrack::GetCandidates(const CandidateSet &cs, Vertex queryVertexID){
@@ -118,9 +121,26 @@ std::vector<Vertex> Backtrack::GetCandidates(const CandidateSet &cs, Vertex quer
   return candidates;
 }
 
-void Backtrack::PrintAllMatches(std::vector<std::pair<Vertex, Vertex>> match) {
+bool Backtrack::cmp(std::pair<Vertex, Vertex> pair1, std::pair<Vertex, Vertex> pair2){
+  return pair1.first < pair2.first;
+}
+
+void Backtrack::PrintAllMatches(const Graph &query, std::vector<std::pair<Vertex, Vertex>> match) {
   // TODO match 프린트하는 것 구현해야 함
-  
+  if(print_first_call==true){
+    std::cout << "t " << query.GetNumVertices() << "\n";
+    print_first_call = false;
+  }
+  std::vector<std::pair<Vertex, Vertex>> copy;
+  std::copy(match.begin(), match.end(), copy.begin());
+  std::sort(copy.begin(), copy.end(), cmp);
+  std::vector<std::pair<Vertex, Vertex>>::iterator iter;
+  std::cout << "a ";
+  for(iter = copy.begin(); iter != copy.end(); iter++){
+    std::pair<Vertex, Vertex> p = *iter;
+    std::cout << p.second << " ";
+  }
+  std::cout << "\n";
 }
 
 
