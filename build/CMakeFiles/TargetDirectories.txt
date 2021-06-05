@@ -1,0 +1,5 @@
+C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/CMakeFiles/edit_cache.dir
+C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/CMakeFiles/rebuild_cache.dir
+C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/main/CMakeFiles/program.dir
+C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/main/CMakeFiles/edit_cache.dir
+C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/main/CMakeFiles/rebuild_cache.dir
