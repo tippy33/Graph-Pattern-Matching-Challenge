@@ -19,13 +19,14 @@ int main(int argc, char* argv[]) {
   std::string query_file_name = argv[2];
   std::string candidate_set_file_name = argv[3];
 
+  // std::cout << "data" <<"\n";
   Graph data(data_file_name);
   Graph query(query_file_name, true);
   CandidateSet candidate_set(candidate_set_file_name);
 
   Backtrack backtrack;
+  // std::cout << "backtrack start" <<"\n";
   backtrack.BacktrackMain(data, query, candidate_set);
-  //backtrack.PrintAllMatches(data, query, candidate_set);
 
   return EXIT_SUCCESS;
 }

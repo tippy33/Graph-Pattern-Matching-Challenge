@@ -1,0 +1,5 @@
+build/
+data/practice.igraph
+query/practice.igraph
+query/four_vertex_three_edge.igraph
+candidate_set/practice.cs

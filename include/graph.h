@@ -7,6 +7,7 @@
 #define GRAPH_H_
 
 #include "common.h"
+#include "map"
 
 class Graph {
  public:
@@ -23,9 +24,11 @@ class Graph {
   inline size_t GetNeighborLabelFrequency(Vertex v, Label l) const;
 
   inline size_t GetDegree(Vertex v) const;
+  inline std::vector<Vertex> GetVertexIDs() const; //custom
   inline size_t GetNumChildren(Vertex id) const;   // custom 
   inline size_t GetNumParent(Vertex id) const;   // custom 
-  inline std::vector<Vertex> GetChildrenID(Vertex id) const;
+  inline std::vector<Vertex> GetChildrenID(Vertex id) const;  //custom
+  inline std::vector<Vertex> GetParentID(Vertex id) const;  //custom
 
   inline size_t GetNeighborStartOffset(Vertex v) const;
   inline size_t GetNeighborEndOffset(Vertex v) const;
@@ -44,9 +47,12 @@ class Graph {
   size_t num_vertices_;
   size_t num_edges_;
   size_t num_labels_;
-  std::vector<size_t> num_children;  //custom
-  std::vector<size_t> num_parent;
-  std::vector<std::vector<Vertex>> children_id;  //custom
+  std::vector<Vertex> vertex_ids_;
+  std::map<Vertex, size_t> num_children;  //custom
+  std::map<Vertex, size_t> num_parent; // custom
+  std::map<Vertex, std::vector<Vertex>> children_id; //custom
+  std::map<Vertex, std::vector<Vertex>> parent_id; //custom
+  // std::vector<std::vector<Vertex>> children_id;  //custom
 
 
   std::vector<size_t> label_frequency_;
@@ -115,13 +121,22 @@ inline size_t Graph::GetDegree(Vertex v) const {
   return start_offset_[v + 1] - start_offset_[v];
 }
 /**
+ * @brief Returns the vector of vertex ids
+ *
+ * @return std::vector<Vertex>
+ */
+inline std::vector<Vertex> Graph::GetVertexIDs() const{
+  return vertex_ids_;
+}
+/**
  * @brief Returns the number of children of the vertex
  *
  * @param v vertex id.
  * @return int
  */
 inline size_t Graph::GetNumChildren(Vertex id) const{
-  return num_children[id];
+  if(num_children.find(id)==num_children.end()) return 0;
+  return num_children.find(id)->second;
 }
 /**
  * @brief Returns the number of parents of the vertex
@@ -130,7 +145,20 @@ inline size_t Graph::GetNumChildren(Vertex id) const{
  * @return size_t
  */
 inline size_t Graph::GetNumParent(Vertex id) const{
-  return num_parent[id];
+  if(num_parent.find(id)==num_parent.end()) return 0;
+  else return num_parent.find(id)->second;
+}
+/**
+ * @brief Returns the id of parents of the vertex
+ *
+ * @param v vertex id.
+ * @return vector<Vertex>
+ */
+inline std::vector<Vertex> Graph::GetParentID(Vertex id) const{
+  if(parent_id.find(id)==parent_id.end()) {
+    std::vector<Vertex> v;
+    return v;
+  } return parent_id.find(id)->second;
 }
 /**
  * @brief Returns the ids of children of the vertex
@@ -139,7 +167,10 @@ inline size_t Graph::GetNumParent(Vertex id) const{
  * @return vector<vertex>
  */
 inline std::vector<Vertex> Graph::GetChildrenID(Vertex id) const{
-  return children_id[id];
+  if(children_id.find(id)==children_id.end()) {
+    std::vector<Vertex> v;
+    return v;
+  } return children_id.find(id)->second;
 }
 /**
  * @brief Returns the start offset of v's neighbor in adjacent array.

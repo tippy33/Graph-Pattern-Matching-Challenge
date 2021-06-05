@@ -77,9 +77,9 @@ Graph::Graph(const std::string &filename, bool is_query) {
 
   num_edges_ = 0;
 
-  num_children.resize(num_vertices_);
-  num_parent.resize(num_vertices_);
-  children_id.resize(num_vertices_);
+  //num_children.resize(num_vertices_);
+  // children_id.resize(num_vertices_);
+  //std::map<Vertex, size_t>::iterator it;
 
   // preprocessing
   while (fin >> type) {
@@ -95,6 +95,7 @@ Graph::Graph(const std::string &filename, bool is_query) {
 
       label_[id] = l;
       label_set.insert(l);
+      vertex_ids_.push_back(id);
     } else if (type == 'e') {
       Vertex v1, v2;
       Label l;
@@ -105,9 +106,54 @@ Graph::Graph(const std::string &filename, bool is_query) {
 
       num_edges_ += 1;
 
-      num_parent[v2]++;  // number of parents 
-      num_children[v1]++;  // number of children 
-      children_id[v1].push_back(v2);
+      auto it = num_parent.find(v2);
+      if(it != num_parent.end()) {
+        // size_t n = it->second;
+        // n++;
+        // it->second = n;
+        it->second++;
+        //std::cout << "exist vertex: " << v2 << ", num_parent: " << it->second << "\n";
+      } else {
+        num_parent.insert(std::make_pair(v2, 1));
+        //std::cout << "new vertex: " << v2 << ", num_parent: " << num_parent.find(v2)->second << "\n";
+      }
+
+      // if(num_parent.find(v2)==num_parent.end()) num_parent.insert(std::make_pair(v2, 1));  // update num_parent
+      // else {
+      //   size_t n = num_parent.find(v2)->second;
+      //   n++;
+      //   num_parent.at(v2) = n;
+      // }
+
+      it = num_children.find(v2);
+      if(it != num_children.end()) {
+        it->second++;
+      } else num_children.insert(std::make_pair(v1, 1));
+
+      // if(num_children.find(v1)==num_parent.end()) num_children.insert(std::make_pair(v1, 1));  // update num_children
+      // else {
+      //   size_t n = num_children.find(v1)->second;
+      //   n++;
+      //   //num_children.at(v1) = n;
+      // }
+      auto iter = children_id.find(v1);
+      if(iter !=children_id.end()) {
+        iter->second.push_back(v2);
+        // std::cout << "exist vertex: " << v2 << ", children_id: " << children_id.find(v2)->second << "\n";
+      } else {
+        std::vector<Vertex> id;
+        id.push_back(v2);
+        children_id.insert(std::make_pair(v1, id));  // update children_id
+      }
+
+      iter = parent_id.find(v2);
+      if(iter!=parent_id.end()) {
+        iter->second.push_back(v1);
+      } else {
+        std::vector<Vertex> id;
+        id.push_back(v1);
+        parent_id.insert(std::make_pair(v2, id));  // update parent_id
+      }
     }
   }
 
