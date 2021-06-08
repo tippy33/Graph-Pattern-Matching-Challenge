@@ -160,7 +160,7 @@ void Backtrack::PrintAllMatches(const Graph &query, std::vector<std::pair<Vertex
 
   time_t end = time(NULL);
   if(end-g_start==60.0 || g_cnt==100000) {
-    printf("g_cnt: %d", g_cnt);
+    // printf("g_cnt: %d", g_cnt);
     exit(0);
   }
 }
