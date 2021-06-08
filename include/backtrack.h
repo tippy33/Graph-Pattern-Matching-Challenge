@@ -16,8 +16,7 @@ class Backtrack {
   ~Backtrack();
 
   void Preprocess(const Graph &query);
-  void BacktrackMain(const Graph &data, const Graph &query,
-                                const CandidateSet &cs);
+  void BacktrackMain(const Graph &data, const Graph &query, const CandidateSet &cs);
   void SubgraphSearch(const Graph &data, const Graph &query,
                                 const CandidateSet &cs, std::vector<std::pair<Vertex, Vertex>> match);
   Vertex NextQueryVertex(const Graph &query, const CandidateSet &cs);

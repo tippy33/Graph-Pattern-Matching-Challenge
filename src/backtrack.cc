@@ -8,12 +8,14 @@
 #include "limits"
 #include "algorithm"
 #include "map"
+#include "time.h"
 
 std::vector<std::vector<std::pair<Vertex, Vertex>>> g_paths;  // all_paths
 std::map<Vertex, bool> g_allParentsMatched;  // map<vertex id, true if all parents matched>
 std::map<Vertex, size_t> g_num_parent;  // map<vertex id, num of parent of the vertex>
 std::map<Vertex, size_t> g_num_matched_parent;  // map<vertex id, num of parent matched>
 std::map<Vertex, bool> g_is_matched;  // map<vertex id, true if the query vertex is matched with data vertex>
+std::map<Vertex, Vertex> g_match;   // map of matched pairs, called at IsExtendable
 bool print_first_call = true; 
 int g_cnt = 0;
 
@@ -26,37 +28,25 @@ void Backtrack::Preprocess(const Graph &query){
   for(size_t i=0; i<num_vertices; i++){
     Vertex v = vertex_ids[i];
     size_t num_parent = query.GetNumParent(v);
-    // std::cout << "Preprocess v is: " << v << ", num_parent is: "<< num_parent <<"\n";
     g_is_matched.insert(std::make_pair(v, false));   // at first, every vertex is not matched
     g_num_parent.insert(std::make_pair(v, num_parent));
 
     if(num_parent == 0) g_allParentsMatched.insert(std::make_pair(v, true));
     else g_allParentsMatched.insert(std::make_pair(v, false));
   }
-  // debug 
-  // std::cout << "g_allParentsMatched: ";
-  // for(auto it=g_allParentsMatched.begin(); it != g_allParentsMatched.end(); it++){
-  //   std::cout << it->second << " ";
-  // } std::cout << "\n";
-  // std::cout << "g_num_parent: ";
-  // for(auto it=g_num_parent.begin(); it != g_num_parent.end(); it++){
-  //   std::cout << it->second << " ";
-  // } std::cout << "\n";
 } 
 
 void Backtrack::BacktrackMain(const Graph &data, const Graph &query,
                                 const CandidateSet &cs){
   Preprocess(query);
-  // std::cout << "preprocessing done" << "\n";
   std::vector<std::pair<Vertex, Vertex>> match;
   SubgraphSearch(data, query, cs, match);
 }
 
 void Backtrack::SubgraphSearch(const Graph &data, const Graph &query,
                                 const CandidateSet &cs, std::vector<std::pair<Vertex, Vertex>> match){
-  if(match.size()==query.GetNumVertices()){
+  if(match.size()==query.GetNumVertices()){  // if all pairs matched
     PrintAllMatches(query, match);
-    //return;
   } else {
     Vertex nextQueryVertex = NextQueryVertex(query, cs);
     //std::cout << "nextQueryVertex: " << nextQueryVertex <<"\n";
@@ -66,26 +56,15 @@ void Backtrack::SubgraphSearch(const Graph &data, const Graph &query,
       std::pair<Vertex, Vertex> pair = {nextQueryVertex, v};  // new pair 
       if(IsExtendable(pair, match, data, query, cs)==true){
         match.push_back(pair);    // update match
-        //printMatch(match);
-        // std::cout << "error HERE\n";
+        g_match.insert(std::make_pair(nextQueryVertex, v));  // update g_match
         UpdateState(query, nextQueryVertex);  // update global variables 
         SubgraphSearch(data, query, cs, match);  // recursive call
         match.pop_back();  // delete the last element 
-        //printMatch(match);
-        //std::cout << "error HERE\n";
+        g_match.erase(nextQueryVertex);
         RestoreState(query, nextQueryVertex);
       }
     }
   }
-}
-
-void Backtrack::printMatch(std::vector<std::pair<Vertex, Vertex>> match){
-  std::cout << "printMatch: ";
-  for(auto it=match.begin(); it!=match.end(); it++){
-    std::pair<Vertex, Vertex> p = *it;
-    std::cout << "(" << p.first <<", "<< p.second <<") ";
-  }
-  std::cout << "\n";
 }
 
 void Backtrack::RestoreState(const Graph &query, Vertex u){ 
@@ -93,9 +72,6 @@ void Backtrack::RestoreState(const Graph &query, Vertex u){
   for(Vertex u_child : childrenID){
     auto it = g_num_matched_parent.find(u_child);
     if(it != g_num_matched_parent.end()) it->second--;
-    // size_t n = g_num_matched_parent.find(u_child)->second;
-    // n--;
-    // g_num_matched_parent.at(u_child) = n;
     if(it->second < g_num_parent.find(u_child)->second) 
       g_allParentsMatched.find(u_child)->second=false;
   }
@@ -104,10 +80,6 @@ void Backtrack::RestoreState(const Graph &query, Vertex u){
 
 void Backtrack::UpdateState(const Graph &query, Vertex u){
   std::vector<Vertex> childrenID = query.GetChildrenID(u);
-  // std::cout << "childrendID: ";
-  // for(auto it=childrenID.begin(); it != childrenID.end(); it++){
-  //   std::cout << *it << " ";
-  // } std::cout << "\n";
   for (Vertex u_child : childrenID) {
     auto it = g_num_matched_parent.find(u_child);
     if (it != g_num_matched_parent.end()) 
@@ -123,32 +95,15 @@ void Backtrack::UpdateState(const Graph &query, Vertex u){
 Vertex Backtrack::NextQueryVertex(const Graph &query, const CandidateSet &cs){
   // 1) 아직 matching되지 않았고 2) parent들의 매칭이 완료됐고 3) 그 중 candidate size가 제일 작은 vertex
   std::vector<Vertex> nextQueryCandidates;
-  
   std::vector<Vertex> vertex_ids = query.GetVertexIDs();
   std::vector<Vertex>::iterator it;
 
-  // std::cout << "vertex_ids: ";
-  // for(it=vertex_ids.begin(); it != vertex_ids.end(); it++){
-  //   std::cout << *it << " ";
-  // } std::cout << "\n";
   
   for(it=vertex_ids.begin(); it != vertex_ids.end(); it++){
-    // std::cout<<"vertex id: "<<*it <<", ";
-    // std::cout << "g_allParentsMatched: ";
-    // for (auto it = g_allParentsMatched.begin(); it != g_allParentsMatched.end(); it++)
-    // {
-    //   std::cout << it->second << " ";
-    // }
-    // std::cout << "\n";
     if(g_is_matched.find(*it)->second==false && g_allParentsMatched.find(*it)->second==true){  // first and second condition
       nextQueryCandidates.push_back(*it);
     } 
   }
-
-  // std::cout<< "nextQueryCandidates: ";
-  // for(it=nextQueryCandidates.begin(); it != nextQueryCandidates.end(); it++){
-  //   std::cout << *it << " ";
-  // } std::cout << "\n";
 
   Vertex next = nextQueryCandidates[0];
   size_t min = std::numeric_limits<size_t>::max();
@@ -169,6 +124,12 @@ bool Backtrack::IsExtendable(std::pair<Vertex, Vertex> pair, std::vector<std::pa
   }
   std::vector<Vertex> parentID = query.GetParentID(pair.first);
   for(size_t i=0; i<parentID.size(); i++){
+    // auto it = g_match.find(parentID[i]);
+    // if(it==g_match.end()) exit(1);
+    // else {
+    //   Vertex matched_data_vertex = g_match.find(parentID[i])->second;
+    //   if(!data.IsNeighbor(matched_data_vertex, pair.second)) return false;
+    // }
     for(size_t j=0; j<match.size(); j++){
       if(match[j].first==parentID[i]) {
         if(!data.IsNeighbor(match[j].second, pair.second)) return false;
@@ -189,32 +150,21 @@ std::vector<Vertex> Backtrack::GetCandidates(const CandidateSet &cs, Vertex quer
 }
 
 void Backtrack::PrintAllMatches(const Graph &query, std::vector<std::pair<Vertex, Vertex>> match) {
-  // std::cout << "size: "<< match.size() <<"\n";
-  //std::cout << "g_cnt: " << ++g_cnt<<"\n";
+  g_cnt++;
+  
   if(print_first_call==true){
     printf("t %u", query.GetNumVertices());
     printf("\n");
     print_first_call = false;
   }
-  // printf("g_cnt is: %d ", ++g_cnt);
-  // if(g_cnt == 10) exit(0);
+  
   printf("a ");
-  //std::cout << "a ";
   for(auto it = match.begin(); it != match.end(); it++){
     std::pair<Vertex, Vertex> p = *it;
     printf("%d ", p.second);
   } printf("\n");
 
-  // std::vector<std::pair<Vertex, Vertex>> copy;
-  // std::copy(match.begin(), match.end(), copy.begin());
-  // //std::sort(copy.begin(), copy.end(), cmp);
-  // std::vector<std::pair<Vertex, Vertex>>::iterator iter;
-  // std::cout << "a ";
-  // for(iter = copy.begin(); iter != copy.end(); iter++){
-  //   std::pair<Vertex, Vertex> p = *iter;
-  //   std::cout << p.second << " ";
-  // }
-  // std::cout << "\n";
+  if(g_cnt==100000) exit(0);
 }
 
 
