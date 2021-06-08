@@ -147,6 +147,10 @@ main/CMakeFiles/program.dir/__/src/backtrack.cc.obj
  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/allocated_ptr.h
  C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/list.tcc
  C:/MinGW/include/time.h
+ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/unordered_map
+ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hashtable.h
+ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/hashtable_policy.h
+ C:/MinGW/lib/gcc/mingw32/6.3.0/include/c++/bits/unordered_map.h
 
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj
  C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/src/candidate_set.cc
@@ -566,5 +570,4 @@ main/CMakeFiles/program.dir/main.cc.obj
  C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/include/candidate_set.h
  C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/include/common.h
  C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/include/graph.h
- C:/MinGW/include/time.h
 
