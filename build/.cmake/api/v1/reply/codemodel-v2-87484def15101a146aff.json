@@ -53,7 +53,7 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "program::@15c4a824ab2728a3f5e7",
-					"jsonFile" : "target-program-Debug-b607ac77babe73c11391.json",
+					"jsonFile" : "target-program-Debug-b91e0c4a893fd67a51ca.json",
 					"name" : "program",
 					"projectIndex" : 0
 				}
@@ -63,8 +63,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build",
-		"source" : "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge"
+		"build" : "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/build",
+		"source" : "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge"
 	},
 	"version" : 
 	{

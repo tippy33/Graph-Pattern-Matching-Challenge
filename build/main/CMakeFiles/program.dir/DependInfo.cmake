@@ -8,10 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/src/backtrack.cc" "main/CMakeFiles/program.dir/__/src/backtrack.cc.obj" "gcc" "main/CMakeFiles/program.dir/__/src/backtrack.cc.obj.d"
-  "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/src/candidate_set.cc" "main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj" "gcc" "main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj.d"
-  "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/src/graph.cc" "main/CMakeFiles/program.dir/__/src/graph.cc.obj" "gcc" "main/CMakeFiles/program.dir/__/src/graph.cc.obj.d"
-  "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/main/main.cc" "main/CMakeFiles/program.dir/main.cc.obj" "gcc" "main/CMakeFiles/program.dir/main.cc.obj.d"
+  "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/src/backtrack.cc" "main/CMakeFiles/program.dir/__/src/backtrack.cc.obj" "gcc" "main/CMakeFiles/program.dir/__/src/backtrack.cc.obj.d"
+  "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/src/candidate_set.cc" "main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj" "gcc" "main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj.d"
+  "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/src/graph.cc" "main/CMakeFiles/program.dir/__/src/graph.cc.obj" "gcc" "main/CMakeFiles/program.dir/__/src/graph.cc.obj.d"
+  "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/main/main.cc" "main/CMakeFiles/program.dir/main.cc.obj" "gcc" "main/CMakeFiles/program.dir/main.cc.obj.d"
   )
 
 # Targets to which this target links.

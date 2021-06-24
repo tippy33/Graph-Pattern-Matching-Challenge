@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge
+CMAKE_SOURCE_DIR = C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build
+CMAKE_BINARY_DIR = C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build
 
 # Include any dependencies generated for this target.
 include main/CMakeFiles/program.dir/depend.make
@@ -72,61 +72,61 @@ main/CMakeFiles/program.dir/main.cc.obj: main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/main.cc.obj: main/CMakeFiles/program.dir/includes_CXX.rsp
 main/CMakeFiles/program.dir/main.cc.obj: ../main/main.cc
 main/CMakeFiles/program.dir/main.cc.obj: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object main/CMakeFiles/program.dir/main.cc.obj"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/main.cc.obj -MF CMakeFiles\program.dir\main.cc.obj.d -o CMakeFiles\program.dir\main.cc.obj -c C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\main\main.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object main/CMakeFiles/program.dir/main.cc.obj"
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/main.cc.obj -MF CMakeFiles\program.dir\main.cc.obj.d -o CMakeFiles\program.dir\main.cc.obj -c C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\main\main.cc
 
 main/CMakeFiles/program.dir/main.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/main.cc.i"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\main\main.cc > CMakeFiles\program.dir\main.cc.i
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\main\main.cc > CMakeFiles\program.dir\main.cc.i
 
 main/CMakeFiles/program.dir/main.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/main.cc.s"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\main\main.cc -o CMakeFiles\program.dir\main.cc.s
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\main\main.cc -o CMakeFiles\program.dir\main.cc.s
 
 main/CMakeFiles/program.dir/__/src/backtrack.cc.obj: main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/__/src/backtrack.cc.obj: main/CMakeFiles/program.dir/includes_CXX.rsp
 main/CMakeFiles/program.dir/__/src/backtrack.cc.obj: ../src/backtrack.cc
 main/CMakeFiles/program.dir/__/src/backtrack.cc.obj: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object main/CMakeFiles/program.dir/__/src/backtrack.cc.obj"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/backtrack.cc.obj -MF CMakeFiles\program.dir\__\src\backtrack.cc.obj.d -o CMakeFiles\program.dir\__\src\backtrack.cc.obj -c C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\backtrack.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object main/CMakeFiles/program.dir/__/src/backtrack.cc.obj"
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/backtrack.cc.obj -MF CMakeFiles\program.dir\__\src\backtrack.cc.obj.d -o CMakeFiles\program.dir\__\src\backtrack.cc.obj -c C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\backtrack.cc
 
 main/CMakeFiles/program.dir/__/src/backtrack.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/__/src/backtrack.cc.i"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\backtrack.cc > CMakeFiles\program.dir\__\src\backtrack.cc.i
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\backtrack.cc > CMakeFiles\program.dir\__\src\backtrack.cc.i
 
 main/CMakeFiles/program.dir/__/src/backtrack.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/__/src/backtrack.cc.s"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\backtrack.cc -o CMakeFiles\program.dir\__\src\backtrack.cc.s
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\backtrack.cc -o CMakeFiles\program.dir\__\src\backtrack.cc.s
 
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj: main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj: main/CMakeFiles/program.dir/includes_CXX.rsp
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj: ../src/candidate_set.cc
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj -MF CMakeFiles\program.dir\__\src\candidate_set.cc.obj.d -o CMakeFiles\program.dir\__\src\candidate_set.cc.obj -c C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\candidate_set.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj"
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/candidate_set.cc.obj -MF CMakeFiles\program.dir\__\src\candidate_set.cc.obj.d -o CMakeFiles\program.dir\__\src\candidate_set.cc.obj -c C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\candidate_set.cc
 
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/__/src/candidate_set.cc.i"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\candidate_set.cc > CMakeFiles\program.dir\__\src\candidate_set.cc.i
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\candidate_set.cc > CMakeFiles\program.dir\__\src\candidate_set.cc.i
 
 main/CMakeFiles/program.dir/__/src/candidate_set.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/__/src/candidate_set.cc.s"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\candidate_set.cc -o CMakeFiles\program.dir\__\src\candidate_set.cc.s
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\candidate_set.cc -o CMakeFiles\program.dir\__\src\candidate_set.cc.s
 
 main/CMakeFiles/program.dir/__/src/graph.cc.obj: main/CMakeFiles/program.dir/flags.make
 main/CMakeFiles/program.dir/__/src/graph.cc.obj: main/CMakeFiles/program.dir/includes_CXX.rsp
 main/CMakeFiles/program.dir/__/src/graph.cc.obj: ../src/graph.cc
 main/CMakeFiles/program.dir/__/src/graph.cc.obj: main/CMakeFiles/program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object main/CMakeFiles/program.dir/__/src/graph.cc.obj"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/graph.cc.obj -MF CMakeFiles\program.dir\__\src\graph.cc.obj.d -o CMakeFiles\program.dir\__\src\graph.cc.obj -c C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\graph.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object main/CMakeFiles/program.dir/__/src/graph.cc.obj"
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT main/CMakeFiles/program.dir/__/src/graph.cc.obj -MF CMakeFiles\program.dir\__\src\graph.cc.obj.d -o CMakeFiles\program.dir\__\src\graph.cc.obj -c C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\graph.cc
 
 main/CMakeFiles/program.dir/__/src/graph.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/program.dir/__/src/graph.cc.i"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\graph.cc > CMakeFiles\program.dir\__\src\graph.cc.i
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\graph.cc > CMakeFiles\program.dir\__\src\graph.cc.i
 
 main/CMakeFiles/program.dir/__/src/graph.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/program.dir/__/src/graph.cc.s"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && C:\MinGW\bin\mingw32-g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\src\graph.cc -o CMakeFiles\program.dir\__\src\graph.cc.s
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\src\graph.cc -o CMakeFiles\program.dir\__\src\graph.cc.s
 
 # Object files for target program
 program_OBJECTS = \
@@ -146,18 +146,18 @@ main/program.exe: main/CMakeFiles/program.dir/build.make
 main/program.exe: main/CMakeFiles/program.dir/linklibs.rsp
 main/program.exe: main/CMakeFiles/program.dir/objects1.rsp
 main/program.exe: main/CMakeFiles/program.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable program.exe"
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\program.dir\link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable program.exe"
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\program.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 main/CMakeFiles/program.dir/build: main/program.exe
 .PHONY : main/CMakeFiles/program.dir/build
 
 main/CMakeFiles/program.dir/clean:
-	cd /d C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main && $(CMAKE_COMMAND) -P CMakeFiles\program.dir\cmake_clean.cmake
+	cd /d C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main && $(CMAKE_COMMAND) -P CMakeFiles\program.dir\cmake_clean.cmake
 .PHONY : main/CMakeFiles/program.dir/clean
 
 main/CMakeFiles/program.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\main C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main C:\Users\pc\Desktop\HW2\Graph-Pattern-Matching-Challenge\build\main\CMakeFiles\program.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\main C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main C:\Users\lfoyh\Desktop\graph1\Graph-Pattern-Matching-Challenge\build\main\CMakeFiles\program.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : main/CMakeFiles/program.dir/depend
 

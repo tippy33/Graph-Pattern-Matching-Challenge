@@ -1,22 +1,22 @@
 [
 {
-  "directory": "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/main",
-  "command": "C:\\MinGW\\bin\\mingw32-g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -g -O3 -Wall -std=c++11 -o CMakeFiles\\program.dir\\main.cc.obj -c C:\\Users\\pc\\Desktop\\HW2\\Graph-Pattern-Matching-Challenge\\main\\main.cc",
-  "file": "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/main/main.cc"
+  "directory": "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/build/main",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/program.dir/includes_CXX.rsp -g -O3 -Wall -std=c++11 -o CMakeFiles\\program.dir\\main.cc.obj -c C:\\Users\\lfoyh\\Desktop\\graph1\\Graph-Pattern-Matching-Challenge\\main\\main.cc",
+  "file": "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/main/main.cc"
 },
 {
-  "directory": "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/main",
-  "command": "C:\\MinGW\\bin\\mingw32-g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -g -O3 -Wall -std=c++11 -o CMakeFiles\\program.dir\\__\\src\\backtrack.cc.obj -c C:\\Users\\pc\\Desktop\\HW2\\Graph-Pattern-Matching-Challenge\\src\\backtrack.cc",
-  "file": "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/src/backtrack.cc"
+  "directory": "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/build/main",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/program.dir/includes_CXX.rsp -g -O3 -Wall -std=c++11 -o CMakeFiles\\program.dir\\__\\src\\backtrack.cc.obj -c C:\\Users\\lfoyh\\Desktop\\graph1\\Graph-Pattern-Matching-Challenge\\src\\backtrack.cc",
+  "file": "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/src/backtrack.cc"
 },
 {
-  "directory": "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/main",
-  "command": "C:\\MinGW\\bin\\mingw32-g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -g -O3 -Wall -std=c++11 -o CMakeFiles\\program.dir\\__\\src\\candidate_set.cc.obj -c C:\\Users\\pc\\Desktop\\HW2\\Graph-Pattern-Matching-Challenge\\src\\candidate_set.cc",
-  "file": "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/src/candidate_set.cc"
+  "directory": "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/build/main",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/program.dir/includes_CXX.rsp -g -O3 -Wall -std=c++11 -o CMakeFiles\\program.dir\\__\\src\\candidate_set.cc.obj -c C:\\Users\\lfoyh\\Desktop\\graph1\\Graph-Pattern-Matching-Challenge\\src\\candidate_set.cc",
+  "file": "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/src/candidate_set.cc"
 },
 {
-  "directory": "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/build/main",
-  "command": "C:\\MinGW\\bin\\mingw32-g++.exe  @CMakeFiles/program.dir/includes_CXX.rsp -g -O3 -Wall -std=c++11 -o CMakeFiles\\program.dir\\__\\src\\graph.cc.obj -c C:\\Users\\pc\\Desktop\\HW2\\Graph-Pattern-Matching-Challenge\\src\\graph.cc",
-  "file": "C:/Users/pc/Desktop/HW2/Graph-Pattern-Matching-Challenge/src/graph.cc"
+  "directory": "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/build/main",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/program.dir/includes_CXX.rsp -g -O3 -Wall -std=c++11 -o CMakeFiles\\program.dir\\__\\src\\graph.cc.obj -c C:\\Users\\lfoyh\\Desktop\\graph1\\Graph-Pattern-Matching-Challenge\\src\\graph.cc",
+  "file": "C:/Users/lfoyh/Desktop/graph1/Graph-Pattern-Matching-Challenge/src/graph.cc"
 }
 ]
